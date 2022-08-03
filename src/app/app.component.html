@@ -1,3 +1,26 @@
-<router-outlet></router-outlet>
-<app-registerform></app-registerform>
+<div *ngIf="!isValidUser">
+    <form [formGroup]="loginForm" (ngSubmit)="validateUserInfo()">
+        <label>User</label><input type="text"  formControlName="userForm">
+        <label>Password</label><input type="password"  formControlName="password">
+        <button type="reset">Cancel</button>
+        <button type="submit" [disabled]="!loginForm.valid">Log In</button>
+    </form>
+</div>
+
+<div *ngIf="findEmployee.isAdmin && isValidUser"> 
+    
+    <app-registerform (addEmployeeEmiter)="addNewEmployee($event)"></app-registerform>
+   
+    
+</div>
+
+<div *ngIf="isValidUser && !findEmployee.isAdmin">
+
 <app-updateform></app-updateform>
+</div>
+
+<div *ngIf="isValidUser">
+    <button type="button" (click)="logOut()">Log Out</button>
+</div>
+
+<router-outlet></router-outlet>
