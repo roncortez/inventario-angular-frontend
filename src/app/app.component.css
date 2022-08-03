@@ -1,0 +1,34 @@
+.form-container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+form {
+    display: flex;
+    flex-direction: column; 
+}
+
+form div {
+    color: red;
+    font-size: small;
+}
+label {
+    padding-top: 10px;
+}
+input {
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+button {
+    width: 50%;
+    padding: 14px 20px;
+    margin: 8px auto;
+    border: none;
+    cursor: pointer;
+}

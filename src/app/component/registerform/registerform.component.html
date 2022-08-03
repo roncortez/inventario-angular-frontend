@@ -1,0 +1,42 @@
+<div class="registerform__header">
+    <h1>Employee Management</h1>
+    <button type="submit" (click)="openModal()">Add Employee</button>
+
+    
+    <div class="registerform__container" *ngIf="modalSwitch == true">
+        <form [formGroup]="registerForm" >
+            <label>National Identification Number</label>
+            <input class="registerform__input" type="text" formControlName="id">
+            <div class="registerform__errors" *ngIf="registerForm.get('id')?.invalid && (registerForm.get('id')?.touched || registerForm.get('id')?.dirty)">
+               <p *ngIf="registerForm.get('id')?.hasError('required')">The field is required</p>
+               <p *ngIf="registerForm.get('id')?.hasError('pattern')">Invalid input</p>
+            </div>
+                       
+            <label>First Name</label>
+            <input class="registerform__input" type="name" formControlName="firstname">
+            <div class="registerform__errors"  *ngIf="registerForm.get('firstname')?.invalid && (registerForm.get('firstname')?.touched || registerForm.get('firstname')?.dirty)">
+                <p *ngIf="registerForm.get('firstname')?.hasError('required')">The field is required</p>
+                <p *ngIf="registerForm.get('firstname')?.hasError('pattern')">Invalid input</p>
+            </div>
+              
+            <label>Last Name</label>
+            <input class="registerform__input" type="name" formControlName="lastname">
+             <div class="registerform__errors"  *ngIf="registerForm.get('lastname')?.invalid && (registerForm.get('lastname')?.touched || registerForm.get('lastname')?.dirty)">
+               <p *ngIf="registerForm.get('lastname')?.hasError('required')">The field is required</p>
+               <p *ngIf="registerForm.get('lastname')?.hasError('pattern')">Invalid input</p>
+            </div>
+            
+            <label>Email</label>
+            <input class="registerform__input" type="email" formControlName="email">
+             <div class="registerform__errors"  *ngIf="registerForm.get('email')?.invalid && (registerForm.get('email')?.touched || registerForm.get('email')?.dirty)">
+               <p *ngIf="registerForm.get('email')?.hasError('required')">The field is required</p>
+               <p *ngIf="registerForm.get('email')?.hasError('email')">Invalid input</p>
+            </div>
+
+            <div class="registerform__bottom">
+                <button (click)="closeModal()">Close</button>
+                <button [disabled]="!registerForm.valid">Save</button>
+            </div>
+        </form>
+    </div>
+</div>

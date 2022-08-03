@@ -1,0 +1,30 @@
+.updateForm__container {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    justify-content: space-around;
+ 
+}
+ 
+fieldset {
+    display: flex;
+    flex-direction: column;
+}
+.updateForm__container-form{
+   display: flex;
+   flex-direction: column;
+}
+
+select{
+    display: block;
+}
+
+.div-vaccine {
+    display: flex;
+    flex-direction: column;
+}
+
+.vaccine label {
+    
+}
+

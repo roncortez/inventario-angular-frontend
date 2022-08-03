@@ -1,0 +1,30 @@
+<div class="updateForm__container">
+    <form class="updateForm__container-form">
+
+        <div><h2>Edit information</h2></div>
+        <fieldset>
+        <legend> Personal Information </legend>
+        <label>Birth Date</label><input type="date">
+        <label>Address</label><input type="text">
+        <label>Mobile Phone</label><input type="text">
+        </fieldset>
+        <fieldset>
+            <legend> Vaccination Status </legend>
+            <label> <input type="radio" [value]="1" name="vaccination" [(ngModel)]="isVisible" [checked]="isSelected"> Vaccinated </label><br>
+            <label> <input type="radio" [value]="0" name="vaccination" [(ngModel)]="isVisible"> Not Vaccinated </label>
+            <!-- etc -->
+        
+            <div class="div-vaccine" *ngIf="isVisible == 1">
+                <label>Vaccine Type</label>
+                <select formControlName="vaccine" name="vaccine">
+                    <option [ngValue]="null" disabled>Select Vaccine</option>
+                    <option *ngFor="let vaccine of vaccines" [ngValue]="vaccine.id">{{vaccine.name}}</option>
+                </select>
+                <label>Last Vaccinacion Date</label><input type="date">
+                <label>Number of Doses</label><input type="number">
+
+            </div>
+        </fieldset>
+        
+    </form>
+</div>

@@ -1,0 +1,58 @@
+import { Component, OnInit } from '@angular/core';
+import { SwitchService } from 'src/app/services/switch.service';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+
+@Component({
+  selector: 'app-updateform',
+  templateUrl: './updateform.component.html',
+  styleUrls: ['./updateform.component.css']
+})
+export class UpdateformComponent implements OnInit {
+
+  updateForm:FormGroup | any;
+
+  vaccines = [
+    { id: 1, name: "Sputnik"},
+    { id: 2, name: "AstraZeneca" },
+    { id: 3, name: "Pfizer" },
+    { id: 4, name: "Jhonson&Jhonson" },
+  ];
+
+  modalSwitch:boolean;
+  
+  isVisible: any;
+  isSelected: boolean = true;
+
+  constructor(
+    private modalSS: SwitchService,
+    private fb:FormBuilder) { 
+
+    this.updateForm = new FormGroup({
+      id: new FormControl('', [Validators.required,Validators.pattern(
+        '[0-9]{10}')]),
+      firstname: new FormControl('', [Validators.required, Validators.pattern(
+        '^[a-zA-Z ]*$')]),
+      lastname: new FormControl('', [Validators.required, Validators.pattern(
+        '^[a-zA-Z ]*$')]),
+      email: new FormControl('', [Validators.required, Validators.email]),
+    });
+
+
+  }
+
+  ngOnInit() {
+    this.modalSS.$modal.subscribe((valor)=>(this.modalSwitch = valor)),
+    
+    this.updateForm = this.fb.group({
+      vaccine: [null]
+    });
+  }
+  
+  openModal(){
+    this.modalSwitch = true;
+  }
+  
+  closeModal(){
+    this.modalSS.$modal.emit(false);
+  }
+}
