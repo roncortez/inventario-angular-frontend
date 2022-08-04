@@ -1,9 +1,18 @@
-<div *ngIf="!isValidUser">
+<router-outlet></router-outlet>
+<div class="loginForm__container"*ngIf="!isValidUser">
     <form [formGroup]="loginForm" (ngSubmit)="validateUserInfo()">
         <label>User</label><input type="text"  formControlName="userForm">
+        <div class="loginForm__errors"  *ngIf="loginForm.get('userForm')?.invalid && (loginForm.get('userForm')?.touched || loginForm.get('userForm')?.dirty)">
+            <p *ngIf="loginForm.get('userForm')?.hasError('required')">The field is required</p>
+         </div>
         <label>Password</label><input type="password"  formControlName="password">
-        <button type="reset">Cancel</button>
+        <div class="loginForm__errors"  *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.touched || loginForm.get('password')?.dirty)">
+            <p *ngIf="loginForm.get('password')?.hasError('required')">The field is required</p>
+         </div>
+        <div class="loginForm__container-button">
+        <button type="reset">Reset</button>
         <button type="submit" [disabled]="!loginForm.valid">Log In</button>
+        </div>
     </form>
 </div>
 
@@ -19,8 +28,7 @@
 <app-updateform></app-updateform>
 </div>
 
-<div *ngIf="isValidUser">
+<div id="logout-container" *ngIf="isValidUser">
     <button type="button" (click)="logOut()">Log Out</button>
 </div>
 
-<router-outlet></router-outlet>

@@ -1,34 +1,41 @@
-.form-container {
+.loginForm__container {
     position: absolute;
     left: 50%;
     top: 50%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #eceeee;
+    box-shadow: 8px 8px 5px #aaaaaa;
+
 }
 
-form {
+.loginForm__container form {
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
+    padding: 20px;
 }
 
-form div {
-    color: red;
+.loginForm__container-button {
+    display: flex;
+    justify-content: space-between;
+}
+
+.loginForm__errors {
     font-size: small;
-}
-label {
-    padding-top: 10px;
-}
-input {
-    padding: 12px 20px;
-    margin: 8px 0;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
+    color: red;
 }
 
 button {
-    width: 50%;
+    
     padding: 14px 20px;
     margin: 8px auto;
     border: none;
     cursor: pointer;
+    background-color: #37a69b;
+    border-radius: 10px;
+}
+
+#logout-container {
+    text-align: center;
 }

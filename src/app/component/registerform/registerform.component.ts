@@ -32,6 +32,7 @@ export class RegisterformComponent implements OnInit {
         '^[a-zA-Z ]*$')]),
       email: new FormControl('', [Validators.required, Validators.email]),
     });
+    
     this.modalSS.$modal.subscribe((valor)=>(this.modalSwitch = valor))
     
   }
@@ -59,6 +60,8 @@ export class RegisterformComponent implements OnInit {
     console.log("Form ",newEmployee)
 
     this.addEmployeeEmiter.emit(newEmployee)
+
+    this.closeModal()
   
   }
   

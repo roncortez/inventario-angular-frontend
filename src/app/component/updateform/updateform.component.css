@@ -15,8 +15,17 @@ fieldset {
    flex-direction: column;
 }
 
+.updateForm__errors {
+    font-size: small;
+    color: red;
+}
+
 select{
     display: block;
+}
+
+input [type=submit]{
+    width: 50%;
 }
 
 .div-vaccine {

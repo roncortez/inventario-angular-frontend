@@ -25,22 +25,19 @@ export class UpdateformComponent implements OnInit {
 
   constructor(
     private modalSS: SwitchService,
-    private fb:FormBuilder) { 
+    public fb:FormBuilder) { 
 
-    this.updateForm = new FormGroup({
-      id: new FormControl('', [Validators.required,Validators.pattern(
-        '[0-9]{10}')]),
-      firstname: new FormControl('', [Validators.required, Validators.pattern(
-        '^[a-zA-Z ]*$')]),
-      lastname: new FormControl('', [Validators.required, Validators.pattern(
-        '^[a-zA-Z ]*$')]),
-      email: new FormControl('', [Validators.required, Validators.email]),
-    });
+    
 
 
   }
 
   ngOnInit() {
+
+    this.updateForm = new FormGroup({
+
+    });
+    
     this.modalSS.$modal.subscribe((valor)=>(this.modalSwitch = valor)),
     
     this.updateForm = this.fb.group({

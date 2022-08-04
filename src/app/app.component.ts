@@ -29,10 +29,11 @@ export class AppComponent {
     });
 
     // password is declared just for demonstration
-    this.initialEmployee.documentId = "000000000"
+    // admin User
+    this.initialEmployee.documentId = "123456789"
     this.initialEmployee.firstname = "Ronny"
     this.initialEmployee.lastname = "Cortez"
-    this.initialEmployee.email = "000000000"
+    this.initialEmployee.email = "ronny.cortez12@gmail.com"
     this.initialEmployee.password = "admin"
     this.initialEmployee.isAdmin = true
     this.initialEmployee.username = "admin"
@@ -48,18 +49,9 @@ export class AppComponent {
 
     let user = this.loginForm.controls.userForm.value
     let password = this.loginForm.controls.password.value
-
-    /*
-    if(this.initialEmployee.username == user && this.initialEmployee.password == password){
-      this.isValidUser = true
-    }
-    */
-
-    console.log(this.listEmployee)
+    
     this.findEmployee = this.listEmployee.find(employee => employee.username == user && employee.password == password)
-    
-    console.log(this.findEmployee)
-    
+  
     if(this.findEmployee && this.findEmployee.username == user && this.findEmployee.password == password){
       this.isValidUser = true
     }
@@ -74,7 +66,7 @@ export class AppComponent {
    * @param event
    */
    addNewEmployee(event: any) {
-    this.listEmployee.push(event);
-    console.log(this.listEmployee)
+      this.listEmployee.push(event);
+      console.log(this.listEmployee)
   }
 }

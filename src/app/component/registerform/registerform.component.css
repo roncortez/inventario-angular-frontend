@@ -15,9 +15,6 @@
     flex-direction: column; 
 }
 
-.registerform__container label {
-    font-weight: bold;
-}
 
 .registerform__errors {
     font-size: small;
@@ -39,7 +36,7 @@
 .registerform__bottom > button {
     border: none;
     padding: 8px;
-    background-color: gold;
+    background-color: #dcb02c;
     border-radius: 10px;
     cursor: pointer;
 }
