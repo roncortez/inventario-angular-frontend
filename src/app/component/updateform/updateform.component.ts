@@ -25,7 +25,7 @@ export class UpdateformComponent implements OnInit {
 
   constructor(
     private modalSS: SwitchService,
-    public fb:FormBuilder) { 
+    private fb:FormBuilder) { 
 
     
 
