@@ -25,3 +25,9 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Log in
+To show functioning without backend construction, admin user is created using TypeScript with the following credentials:
+User: admin
+Password: admin
+After login, admin can add employee and user and password are generated to allow new user edit information. Project is still in development, so it is not finished, and some stages are not finished and just programmed for demonstration purposes. 
